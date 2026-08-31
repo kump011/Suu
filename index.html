@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Suu ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ PREMIUM LOGIN GATE ============ -->
+<div id="login-gate">
+  <canvas id="gate-canvas"></canvas>
+  <div class="gate-vignette"></div>
+
+  <div class="gate-content" id="gate-content">
+    <p class="gate-line" id="gate-line1">For My Love ❤️</p>
+    <h2 class="gate-name" id="gate-name">Welcome Suu <span>❤️</span></h2>
+    <p class="gate-line gate-sub" id="gate-line2">This little world was built just for you.</p>
+
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <div class="gate-field" id="gate-name-field">
+        <label for="gate-input-name">Name</label>
+        <input type="text" id="gate-input-name" placeholder="Your name" autocomplete="off">
+      </div>
+      <div class="gate-field" id="gate-pass-field">
+        <label for="gate-input-pass">Password</label>
+        <input type="password" id="gate-input-pass" placeholder="Your password" autocomplete="off">
+      </div>
+      <button type="submit" class="gate-submit" id="gate-submit">
+        <svg class="gate-lock" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Unlock</span>
+      </button>
+      <p class="gate-message" id="gate-message"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ============ VECTOR ICON LIBRARY (replaces emoji for ambient animation) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe9b0"/>
+      <stop offset="55%" stop-color="#ff9fc4"/>
+      <stop offset="100%" stop-color="#c9a3ff"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-cloud" viewBox="0 0 100 60">
+    <g fill="currentColor">
+      <ellipse cx="30" cy="36" rx="22" ry="16"/>
+      <ellipse cx="55" cy="28" rx="26" ry="20"/>
+      <ellipse cx="78" cy="38" rx="18" ry="14"/>
+      <rect x="16" y="36" width="72" height="18" rx="9"/>
+    </g>
+  </symbol>
+  <symbol id="i-butterfly" viewBox="0 0 100 100">
+    <g>
+      <path d="M50,45 C32,14 6,18 8,38 C10,58 34,58 50,46 Z" fill="url(#wingGrad)"/>
+      <path d="M50,45 C68,14 94,18 92,38 C90,58 66,58 50,46 Z" fill="url(#wingGrad)"/>
+      <path d="M50,46 C28,58 10,78 14,88 C21,97 40,72 50,54 Z" fill="url(#wingGrad)" opacity=".82"/>
+      <path d="M50,46 C72,58 90,78 86,88 C79,97 60,72 50,54 Z" fill="url(#wingGrad)" opacity=".82"/>
+      <line x1="50" y1="34" x2="50" y2="74" stroke="#6a4463" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="50" cy="32" r="2.6" fill="#6a4463"/>
+    </g>
+  </symbol>
+  <symbol id="i-bird" viewBox="0 0 100 60">
+    <path d="M50,32 C36,8 6,16 4,30 C4,40 28,40 50,33 C72,40 96,40 96,30 C94,16 64,8 50,32 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-blossom" viewBox="0 0 100 100">
+    <g fill="currentColor">
+      <circle cx="50" cy="26" r="16"/><circle cx="50" cy="74" r="16"/>
+      <circle cx="26" cy="50" r="16"/><circle cx="74" cy="50" r="16"/>
+      <circle cx="33" cy="33" r="15"/><circle cx="67" cy="33" r="15"/>
+      <circle cx="33" cy="67" r="15"/><circle cx="67" cy="67" r="15"/>
+    </g>
+    <circle cx="50" cy="50" r="13" fill="#ffd27a"/>
+  </symbol>
+  <symbol id="i-petal" viewBox="0 0 60 60">
+    <path d="M30,4 C46,16 46,42 30,56 C14,42 14,16 30,4 Z" fill="currentColor"/>
+    <path d="M30,10 C30,24 30,36 30,50" stroke="rgba(255,255,255,.5)" stroke-width="1.4" fill="none"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 100 90">
+    <path d="M50,85 C10,58 -2,26 18,10 C34,-3 50,10 50,26 C50,10 66,-3 82,10 C102,26 90,58 50,85 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-couple" viewBox="0 0 120 100">
+    <g fill="currentColor">
+      <circle cx="34" cy="18" r="12"/>
+      <path d="M18,44 Q34,28 50,44 L48,92 L37,92 L34,60 L31,92 L20,92 Z"/>
+      <circle cx="86" cy="18" r="12"/>
+      <path d="M70,44 Q86,28 102,44 L100,92 L89,92 L86,60 L83,92 L72,92 Z"/>
+      <rect x="47" y="56" width="26" height="6" rx="3"/>
+    </g>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 40 40">
+    <path d="M20,0 C21,12 28,19 40,20 C28,21 21,28 20,40 C19,28 12,21 0,20 C12,19 19,12 20,0 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="20" fill="currentColor"/>
+    <g stroke="currentColor" stroke-width="4.5" stroke-linecap="round">
+      <line x1="50" y1="4" x2="50" y2="18"/><line x1="50" y1="82" x2="50" y2="96"/>
+      <line x1="4" y1="50" x2="18" y2="50"/><line x1="82" y1="50" x2="96" y2="50"/>
+      <line x1="17" y1="17" x2="27" y2="27"/><line x1="73" y1="73" x2="83" y2="83"/>
+      <line x1="17" y1="83" x2="27" y2="73"/><line x1="73" y1="27" x2="83" y2="17"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loading-screen">
+  <div class="load-aurora"></div>
+  <div class="load-hearts" id="load-hearts"></div>
+  <div class="load-content">
+    <div class="load-ring">
+      <svg viewBox="0 0 120 120" class="load-ring-svg">
+        <circle cx="60" cy="60" r="52" class="load-ring-track"/>
+        <circle cx="60" cy="60" r="52" class="load-ring-bar" id="load-ring-bar"/>
+      </svg>
+      <span class="load-ring-heart">❤️</span>
+    </div>
+    <p class="load-label">preparing something special</p>
+    <p class="load-percent" id="load-percent">0%</p>
+  </div>
+</div>
+
+<!-- Cursor trail canvas -->
+<canvas id="cursor-canvas"></canvas>
+<!-- Ambient particle canvas (hearts / petals / fireflies) -->
+<canvas id="ambient-canvas"></canvas>
+<!-- Soft light rays + fog layer -->
+<div id="atmosphere-layer" aria-hidden="true">
+  <div class="light-ray r1"></div>
+  <div class="light-ray r2"></div>
+  <div class="light-ray r3"></div>
+  <div class="fog f1"></div>
+  <div class="fog f2"></div>
+</div>
+<div id="click-ripple-layer" aria-hidden="true"></div>
+
+<!-- ============ CINEMATIC WORLD ENGINE (Three.js per-section environments) ============ -->
+<div id="bg-a" class="bg-theme-layer" aria-hidden="true"></div>
+<div id="bg-b" class="bg-theme-layer" aria-hidden="true"></div>
+<canvas id="scene-canvas" aria-hidden="true"></canvas>
+<div id="transition-burst-layer" aria-hidden="true"></div>
+<div id="cursor-follower" aria-hidden="true"></div>
+<div id="compliment-layer" aria-hidden="true"></div>
+
+<!-- ============ LANDING / INTRO SCREEN ============ -->
+<section id="landing" data-theme="night-sky">
+  <div class="sky">
+    <div class="stars"></div>
+    <div class="cloud cloud1"><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></div>
+    <div class="cloud cloud2"><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></div>
+    <div class="cloud cloud3"><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></div>
+    <div class="butterfly b1"><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></div>
+    <div class="butterfly b2"><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></div>
+    <div class="butterfly b3"><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></div>
+  </div>
+
+  <div class="landing-content">
+    <p class="eyebrow">for my love</p>
+    <h1 class="landing-title">Some Idiot Has Something<br>For You <span class="heart-emoji">❤️</span></h1>
+
+    <button id="big-heart" aria-label="Open your surprise">
+      <span class="heart-dust" id="heart-dust"></span>
+      <svg viewBox="0 0 200 180" class="heart-svg">
+        <defs>
+          <radialGradient id="heartGrad" cx="32%" cy="26%" r="85%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="30%" stop-color="#ffd6e8"/>
+            <stop offset="65%" stop-color="#ff8fb8"/>
+            <stop offset="100%" stop-color="#ff5c94"/>
+          </radialGradient>
+          <linearGradient id="heartFacet" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff" stop-opacity=".8"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="heart-body" d="M100,170 C20,110 0,65 25,35 C45,10 85,15 100,45 C115,15 155,10 175,35 C200,65 180,110 100,170 Z" fill="url(#heartGrad)"/>
+        <path class="heart-facet" d="M100,45 C90,60 70,70 55,68 C70,50 85,40 100,45 Z" fill="url(#heartFacet)"/>
+      </svg>
+      <span class="heart-glow"></span>
+      <span class="heart-sparkle s1">✦</span>
+      <span class="heart-sparkle s2">✦</span>
+      <span class="heart-sparkle s3">✦</span>
+    </button>
+
+    <p class="click-hint">Click the Heart</p>
+  </div>
+
+  <div id="cinematic-overlay">
+    <div class="freeze-veil"></div>
+    <div id="particle-burst-canvas-wrap">
+      <canvas id="heart-particle-3d-canvas"></canvas>
+      <canvas id="particle-burst-canvas"></canvas>
+    </div>
+    <div class="cine-butterflies">
+      <span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span>
+    </div>
+    <div class="cine-petals">
+      <span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span>
+    </div>
+  </div>
+  <div id="explosion-overlay"></div>
+</section>
+
+<!-- ============ MAIN SITE ============ -->
+<main id="site" hidden>
+
+  <!-- Premium floating music player -->
+  <div id="music-player" class="collapsed">
+    <button id="player-toggle" class="player-toggle" aria-label="Expand player">
+      <span class="player-art"><span class="eq"><i></i><i></i><i></i><i></i></span></span>
+    </button>
+    <div class="player-body">
+      <button id="player-close" class="player-close" aria-label="Close player" type="button">&times;</button>
+      <div class="player-art-lg"><span class="eq eq-lg"><i></i><i></i><i></i><i></i></span></div>
+      <div class="player-info">
+        <p id="track-title">Perfect — Ed Sheeran</p>
+        <div class="player-progress">
+          <span id="time-current">0:00</span>
+          <input id="seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek">
+          <span id="time-total">0:00</span>
+        </div>
+        <div class="player-controls">
+          <button id="shuffle-track" class="ghost-icon" aria-label="Toggle shuffle">🔀</button>
+          <button id="loop-track" class="ghost-icon" aria-label="Toggle loop">🔁</button>
+          <button id="prev-track" aria-label="Previous track">⏮</button>
+          <button id="play-pause" aria-label="Play or pause">▶</button>
+          <button id="next-track" aria-label="Next track">⏭</button>
+          <button id="playlist-toggle" class="ghost-icon" aria-label="Show playlist">☰</button>
+        </div>
+        <div class="player-volume">
+          <span>🔉</span>
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" aria-label="Volume">
+        </div>
+      </div>
+    </div>
+    <ul id="playlist" class="playlist" hidden></ul>
+  </div>
+  <audio id="bg-audio" loop></audio>
+
+  <!-- Nav dots -->
+  <nav id="dot-nav">
+    <a href="#countdown-section" data-label="Countdown"></a>
+    <a href="#story" data-label="Our Story"></a>
+    <a href="#gift-frame" data-label="The Gift"></a>
+    <a href="#love-quotes" data-label="Love Quotes"></a>
+    <a href="#gallery" data-label="Gallery"></a>
+    <a href="#scene" data-label="Us"></a>
+    <a href="#wishes" data-label="Wishes"></a>
+    <a href="#favorite-person" data-label="Suu"></a>
+    <a href="#entire-world" data-label="My World"></a>
+    <a href="#milestones" data-label="Milestones"></a>
+    <a href="#little-things" data-label="Little Things"></a>
+    <a href="#quiz" data-label="Quiz"></a>
+    <a href="#letter" data-label="Letter"></a>
+    <a href="#unspoken-words" data-label="Unspoken Words"></a>
+    <a href="#reasons" data-label="Reasons"></a>
+    <a href="#heart-still-says" data-label="Heart Still Says"></a>
+    <a href="#su7-page" data-label="This Moment"></a>
+    <a href="#proposal" data-label="The Question"></a>
+  </nav>
+
+  <!-- ===== Birthday Countdown (kept to exactly one instance, right at the top) ===== -->
+  <section id="countdown-section" class="section countdown-section" data-theme="night-sky">
+    <p class="section-eyebrow">before we begin</p>
+    <h2 class="section-title">Until Your Birthday <span>❤️</span></h2>
+    <p class="countdown-subtitle" id="countdown-subtitle">Every second brings us closer to celebrating you.</p>
+    <div class="countdown-wrap" id="countdown-wrap">
+      <div id="countdown" class="countdown">
+        <div><span id="cd-days">0</span><small>Days</small></div>
+        <div><span id="cd-hours">0</span><small>Hours</small></div>
+        <div><span id="cd-mins">0</span><small>Minutes</small></div>
+        <div><span id="cd-secs">0</span><small>Seconds</small></div>
+      </div>
+    </div>
+    <div class="birthday-today" id="birthday-today" hidden>
+      <p class="birthday-today-emoji">🎉🎂🎉</p>
+      <h3 class="birthday-today-title">It's Your Day, Suu! <span>❤️</span></h3>
+      <p class="birthday-today-sub">Happy Birthday — today, of all days, is about celebrating you.</p>
+    </div>
+  </section>
+
+  <!-- ===== Our Journey ===== -->
+  <section id="story" class="section" data-theme="night-sky">
+    <p class="section-eyebrow">chapter one</p>
+    <h2 class="section-title">Our Story ❤️</h2>
+    <p class="timeline-hint">Tap each card to unlock a memory</p>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- ===== A Gift I'll Treasure Forever ===== -->
+  <section id="gift-frame" class="section gift-frame-section" data-theme="luxury">
+    <p class="section-eyebrow">a treasured gift</p>
+    <h2 class="section-title">A Gift I'll Treasure Forever ❤️</h2>
+    <p class="section-sub" id="gf-intro-text">A gift from someone who changed my life...</p>
+    <div class="gf-stage" id="gf-stage">
+      <canvas id="gf-canvas"></canvas>
+      <button class="gf-box-trigger" id="gf-trigger" aria-label="Open your gift">
+        <div class="gf-box-glow"></div>
+        <svg class="gf-box-svg" viewBox="0 0 100 90" width="120" height="108">
+          <defs>
+            <linearGradient id="gfBoxGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8a4fd1"/><stop offset="100%" stop-color="#5f2fa8"/></linearGradient>
+            <linearGradient id="gfLidGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a566e0"/><stop offset="100%" stop-color="#7c40c2"/></linearGradient>
+            <linearGradient id="gfRibbonGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff3d6"/><stop offset="100%" stop-color="#ffb347"/></linearGradient>
+          </defs>
+          <rect class="gf-lid" x="12" y="30" width="76" height="14" rx="3" fill="url(#gfLidGrad)"/>
+          <rect x="12" y="38" width="76" height="46" rx="4" fill="url(#gfBoxGrad)"/>
+          <g class="gf-ribbon">
+            <rect x="44" y="10" width="12" height="74" fill="url(#gfRibbonGrad)"/>
+            <rect x="12" y="52" width="76" height="10" fill="url(#gfRibbonGrad)"/>
+            <path d="M50 30 C38 14 24 14 30 26 C34 33 44 32 50 30 Z" fill="url(#gfRibbonGrad)"/>
+            <path d="M50 30 C62 14 76 14 70 26 C66 33 56 32 50 30 Z" fill="url(#gfRibbonGrad)"/>
+          </g>
+        </svg>
+        <span class="gf-tap-hint">tap to open</span>
+      </button>
+      <div class="gf-frame" id="gf-frame">
+        <div class="gf-frame-inner" id="gf-frame-inner">
+          <img src="assets/pic9.jpg" alt="The wooden frame you gave me" id="gf-image">
+          <div class="gf-missing-note">Add your own photo of the frame at<br><code>assets/pic9.jpg</code></div>
+        </div>
+      </div>
+    </div>
+    <div class="gf-caption" id="gf-caption">
+      <p class="gf-msg-line" data-text="This wasn't just a gift."></p>
+      <p class="gf-msg-line" data-text="It became one of the most precious memories of my life."></p>
+      <p class="gf-msg-line" data-text="Every time I look at it, I remember you."></p>
+      <p class="gf-msg-line" data-text="Thank you for making my ordinary life feel extraordinary."></p>
+      <p class="gf-msg-line" data-text="I will treasure it forever."></p>
+      <p class="gf-msg-line gf-signature" data-text="Love you, Suu ❤️"></p>
+    </div>
+  </section>
+
+  <!-- ===== Love Quotes ===== -->
+  <section id="love-quotes" class="section love-quotes-section" data-theme="sakura">
+    <p class="section-eyebrow">from my heart</p>
+    <h2 class="section-title">Love Quotes ❤️</h2>
+    <p class="section-sub">A few things I don't say enough, but always mean.</p>
+    <div class="lq-portrait-wrap tap-reveal" id="lq-portrait-wrap" tabindex="0" role="button" aria-label="Tap to reveal photo">
+      <div class="lq-portrait-glow"></div>
+      <span class="pic-zoom" style="--zoom-dur:15s;">
+        <img src="assets/pic8.jpg" alt="Suu" id="lq-portrait" class="lq-portrait"
+          onerror="this.closest('.lq-portrait-wrap').classList.add('lq-missing'); this.remove();">
+      </span>
+      <div class="lq-portrait-missing">Add your own photo at<br><code>assets/pic8.jpg</code></div>
+      <div class="tap-reveal-veil"><span class="tap-reveal-label">Tap to reveal ❤️</span></div>
+    </div>
+    <div class="lq-grid" id="lq-grid"></div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section id="gallery" class="section alt" data-theme="galaxy">
+    <p class="section-eyebrow">chapter two</p>
+    <h2 class="section-title">A Few Favorite Moments</h2>
+    <p class="section-sub">Tap a frame to reveal the memory inside — replace these with your own photos at <code>assets/pic1.jpg</code>–<code>pic4.jpg</code>.</p>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lb-toolbar">
+      <button class="lb-btn" id="lb-zoom-out" aria-label="Zoom out">🔎</button>
+      <button class="lb-btn" id="lb-zoom-in" aria-label="Zoom in">🔍</button>
+      <button class="lb-btn" id="lb-rotate" aria-label="Rotate">🔄</button>
+      <button class="lb-btn" id="lb-fullscreen" aria-label="Fullscreen">⛶</button>
+      <button class="lb-btn lb-close" id="lb-close" aria-label="Close">✕</button>
+    </div>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">‹</button>
+    <div class="lb-frame" id="lb-frame">
+      <div class="lb-image-wrap" id="lb-image-wrap">
+        <div id="lb-image" class="lb-image"></div>
+      </div>
+    </div>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next">›</button>
+    <div class="lb-info">
+      <h3 id="lb-title"></h3>
+      <p id="lb-desc"></p>
+      <span id="lb-date"></span>
+    </div>
+    <div class="lb-counter" id="lb-counter">1 / 8</div>
+    <p class="lb-hint">pinch or scroll to zoom · double-tap to zoom · drag to pan · swipe to browse</p>
+  </div>
+
+  <!-- ===== Cute animated scene ===== -->
+  <section id="scene" class="section scene-section" data-theme="sunrise">
+    <p class="section-eyebrow">just us</p>
+    <h2 class="section-title">You &amp; Me</h2>
+    <div class="scene">
+      <div class="scene-sun"><svg class="icon" viewBox="0 0 100 100"><use href="#i-sun"/></svg></div>
+      <div class="scene-rainbow"></div>
+      <div class="scene-cloud sc1"><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></div>
+      <div class="scene-cloud sc2"><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></div>
+      <div class="scene-bird sb1"><svg class="icon" viewBox="0 0 100 100"><use href="#i-bird"/></svg></div>
+      <div class="scene-bird sb2"><svg class="icon" viewBox="0 0 100 100"><use href="#i-bird"/></svg></div>
+      <div class="scene-ground">
+        <span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span><span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span><span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span>
+        <span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span><span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span><span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span>
+        <span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span><span class="flower"><svg class="icon" viewBox="0 0 100 100"><use href="#i-blossom"/></svg></span>
+      </div>
+      <div class="scene-couple"><svg class="icon" viewBox="0 0 100 100"><use href="#i-couple"/></svg></div>
+      <div class="scene-hearts"><svg class="icon" viewBox="0 0 100 100"><use href="#i-heart"/></svg></div>
+      <div class="scene-butterfly"><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></div>
+    </div>
+  </section>
+
+  <!-- ===== Wishes ===== -->
+  <section id="wishes" class="section" data-theme="garden">
+    <p class="section-eyebrow">chapter three</p>
+    <h2 class="section-title">A Few Things I Want You To Know</h2>
+    <div class="wishes-grid" id="wishes-grid"></div>
+  </section>
+
+  <!-- ===== My Favorite Person ===== -->
+  <section id="favorite-person" class="section favorite-section" data-theme="luxury">
+    <p class="section-eyebrow">for my suu</p>
+    <h2 class="section-title">My Dearest Suu ❤️</h2>
+    <p class="section-sub">Tap the heart.</p>
+    <div class="fp-stage" id="fp-stage">
+      <canvas id="fp-canvas"></canvas>
+      <button class="fp-heart-trigger" id="fp-trigger" aria-label="Reveal my favorite person">
+        <svg class="fp-heart-svg" viewBox="0 0 100 90" width="76" height="70">
+          <defs>
+            <radialGradient id="fpHeartGrad" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#fff3d6"/>
+              <stop offset="45%" stop-color="#ffb3c6"/>
+              <stop offset="100%" stop-color="#d94f78"/>
+            </radialGradient>
+          </defs>
+          <path d="M50 85 C10 55 -5 25 20 10 C35 1 48 8 50 22 C52 8 65 1 80 10 C105 25 90 55 50 85 Z" fill="url(#fpHeartGrad)"/>
+        </svg>
+        <span class="fp-tap-hint">tap to reveal</span>
+      </button>
+      <div class="fp-frame" id="fp-frame">
+        <div class="fp-frame-inner">
+          <img src="assets/pic5.jpg" alt="Suu" id="fp-image">
+        </div>
+      </div>
+    </div>
+    <div class="fp-caption" id="fp-caption">
+      <h3 class="fp-name">Suu <span>❤️</span></h3>
+      <p class="fp-line">My Favorite Laugh</p>
+      <p class="fp-line">My Greatest Comfort</p>
+      <p class="fp-line">My Safe Place</p>
+      <p class="fp-line">My Love, Always</p>
+    </div>
+  </section>
+
+  <!-- ===== My Entire World ===== -->
+  <section id="entire-world" class="section entire-world-section" data-theme="lake">
+    <div class="ew-portrait-wrap" id="ew-portrait-wrap">
+      <img src="assets/pic7.jpg" alt="Suu, my love" id="ew-portrait" class="ew-hero-img">
+      <div class="ew-portrait-glow"></div>
+      <div class="ew-missing-note">Add your own portrait at<br><code>assets/pic7.jpg</code></div>
+    </div>
+    <canvas id="ew-canvas"></canvas>
+    <div class="ew-vignette"></div>
+
+    <div class="ew-text-sequence" id="ew-text-sequence">
+      <p class="ew-line ew-line1" id="ew-line1">We started as friends...</p>
+      <h2 class="ew-name" id="ew-name">Suu <span>❤️</span></h2>
+      <div class="ew-poem" id="ew-poem">
+        <p class="ew-poem-line" data-text="Every memory I remember..."></p>
+        <p class="ew-poem-line" data-text="Every laugh I carry..."></p>
+        <p class="ew-poem-line" data-text="Every hard day you stayed through..."></p>
+        <p class="ew-poem-line" data-text="Every tomorrow I imagine..."></p>
+        <p class="ew-poem-line ew-poem-pause" data-text="...but somewhere along the way..."></p>
+        <p class="ew-poem-line ew-poem-final" data-text="you became my love. ❤️"></p>
+      </div>
+      <p class="ew-line ew-closing" id="ew-closing">You are not just my best friend anymore...<br>You are my favorite love story.</p>
+    </div>
+
+    <div class="ew-white-fade" id="ew-white-fade"></div>
+  </section>
+
+  <!-- ===== Relationship Timeline ===== -->
+  <section id="milestones" class="section milestones-section" data-theme="luxury">
+    <p class="section-eyebrow">our story, in dates</p>
+    <h2 class="section-title">Every Step That Led Here ❤️</h2>
+    <div class="rt-timeline" id="rt-timeline">
+      <div class="rt-item reveal" data-index="0">
+        <div class="rt-icon">💗</div>
+        <div class="rt-card">
+          <span class="rt-date">May 22, 2025</span>
+          <h3 class="rt-title">The Day I Proposed 💍</h3>
+          <p class="rt-text">The day I finally put my feelings into words and asked you to become a part of my story and every day since has felt like the best decision I ever made.</p>
+          <button class="rt-secret" type="button" aria-label="Reveal a hidden memory" data-msg="That one question changed the direction of my heart forever. ❤️">✦</button>
+          <p class="rt-secret-text"></p>
+        </div>
+      </div>
+      <div class="rt-connector" aria-hidden="true">
+        <svg viewBox="0 0 24 40" width="20" height="34"><path d="M12 2 V32 M5 25 L12 34 L19 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="rt-item reveal" data-index="1">
+        <div class="rt-icon">☎️</div>
+        <div class="rt-card">
+          <span class="rt-date">July 6, 2025</span>
+          <h3 class="rt-title">The Day We First Started Talking 🎲 ☎️</h3>
+          <p class="rt-text">“It all started with a simple game of Ludo… 🎲 One little game turned into our first conversations, and those conversations slowly became something I never wanted to lose.”</p>
+          <button class="rt-secret" type="button" aria-label="Reveal a hidden memory" data-msg="The first call was only a conversation... but it became the beginning of countless memories. ❤️">✦</button>
+          <p class="rt-secret-text"></p>
+        </div>
+      </div>
+      <div class="rt-connector" aria-hidden="true">
+        <svg viewBox="0 0 24 40" width="20" height="34"><path d="M12 2 V32 M5 25 L12 34 L19 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="rt-item rt-item-highlight reveal" data-index="2">
+        <div class="rt-icon">❤️</div>
+        <div class="rt-card">
+          <span class="rt-date">January 25, 2026</span>
+          <h3 class="rt-title">Our First Meet ❤️</h3>
+          <p class="rt-text">The day someone who had already become important to my heart finally stood right in front of me. Every message and every call turned into something real. That day is one I'll never forget.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special dedicated photo space for pic10 -->
+    <div class="sp-wrap reveal" id="sp-wrap">
+      <div class="sp-frame tap-reveal" tabindex="0" role="button" aria-label="Tap to reveal photo">
+        <img src="assets/pic10.jpg" alt="The day we finally met" id="sp-image" class="sp-image"
+          onerror="this.closest('.sp-wrap').classList.add('sp-missing'); this.remove();">
+        <div class="sp-missing-note">Add your own photo at<br><code>assets/pic10.jpg</code></div>
+        <button class="sp-secret" type="button" aria-label="Reveal a hidden memory" id="sp-secret">✦</button>
+        <div class="tap-reveal-veil"><span class="tap-reveal-label">Tap to reveal ❤️</span></div>
+      </div>
+      <p class="sp-caption">The moment it finally became real ❤️</p>
+      <span class="sp-date">January 25, 2026</span>
+      <div class="sp-secret-panel" id="sp-secret-panel">
+        <p class="sp-secret-line" data-text="January 25, 2026 — the day a memory became real. ❤️"></p>
+        <p class="sp-secret-line" data-text="Some moments are remembered. Some moments become a part of you."></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Little Things I Love About You ===== -->
+  <section id="little-things" class="section alt little-things-section" data-theme="sakura">
+    <p class="section-eyebrow">chapter four</p>
+    <h2 class="section-title">Little Things I Love About You ❤️</h2>
+    <p class="section-sub">A few small things that quietly became my favorite things.</p>
+    <div class="lt-grid" id="lt-grid"></div>
+  </section>
+
+  <!-- ===== Quiz ===== -->
+  <section id="quiz" class="section quiz-section" data-theme="lake">
+    <p class="section-eyebrow">chapter five</p>
+    <h2 class="section-title">How Well Do You Know Us?</h2>
+    <div id="quiz-box" class="quiz-box"></div>
+  </section>
+
+  <!-- ===== Secret Letter ===== -->
+  <section id="letter" class="section alt letter-section" data-theme="lake">
+    <p class="section-eyebrow">chapter six</p>
+    <h2 class="section-title">Secret Letter</h2>
+    <div id="envelope" class="envelope">
+      <div class="envelope-back"></div>
+      <div class="letter-paper" id="letter-paper">
+        <span class="letter-deco letter-spark s1">✦</span>
+        <span class="letter-deco letter-spark s2">✦</span>
+        <span class="letter-deco letter-spark s3">✦</span>
+        <svg class="letter-deco letter-heart h1" viewBox="0 0 100 90" width="16" height="15"><path d="M50 85 C10 55 -5 25 20 10 C35 1 48 8 50 22 C52 8 65 1 80 10 C105 25 90 55 50 85 Z" fill="#ffb3c6"/></svg>
+        <svg class="letter-deco letter-heart h2" viewBox="0 0 100 90" width="12" height="11"><path d="M50 85 C10 55 -5 25 20 10 C35 1 48 8 50 22 C52 8 65 1 80 10 C105 25 90 55 50 85 Z" fill="#ffd9a0"/></svg>
+        <div class="letter-heading">
+          <p class="letter-from">From Shivu</p>
+          <p class="letter-to">To Dearest Suu <span>❤️</span></p>
+        </div>
+        <div id="letter-text"></div>
+      </div>
+      <div class="envelope-flap"></div>
+    </div>
+    <p class="envelope-hint" id="envelope-hint">Click the envelope to open it</p>
+  </section>
+
+  <!-- ===== Things I Never Knew How To Say ===== -->
+  <section id="unspoken-words" class="section alt unspoken-section" data-theme="lake">
+    <p class="section-eyebrow">chapter six and a half</p>
+    <h2 class="section-title unspoken-title">What I Never Knew How To Say</h2>
+    <p class="unspoken-subtitle">Some feelings are easier to write than to say...</p>
+    <div class="unspoken-paper" id="unspoken-paper"></div>
+  </section>
+
+  <!-- ===== Reasons ===== -->
+  <section id="reasons" class="section reasons-section" data-theme="sakura">
+    <p class="section-eyebrow">chapter seven</p>
+    <h2 class="section-title">100 Reasons (and counting)</h2>
+    <div class="reasons-track">
+      <div class="reasons-scroll" id="reasons-scroll-1"></div>
+    </div>
+    <div class="reasons-track">
+      <div class="reasons-scroll reverse" id="reasons-scroll-2"></div>
+    </div>
+  </section>
+
+  <!-- ===== The Things My Heart Still Says ===== -->
+  <section id="heart-still-says" class="section hss-section" data-theme="galaxy">
+    <p class="section-eyebrow">chapter eight</p>
+    <h2 class="section-title">The Things My Heart Still Says 🥀</h2>
+    <div class="hss-grid" id="hss-grid"></div>
+  </section>
+
+  <!-- ===== Surprise Gift ===== -->
+  <section class="section alt gift-section" data-theme="luxury">
+    <p class="section-eyebrow">one more thing</p>
+    <h2 class="section-title">A Little Surprise</h2>
+    <button id="gift-box" class="gift-box" aria-label="Open your gift">🎁</button>
+    <p id="gift-msg" class="gift-msg" hidden>You are, and always will be, my favorite surprise. 💝 Happy Birthday, Suu.</p>
+  </section>
+
+  <!-- ===== pic11 — one dedicated big photo page ===== -->
+  <section id="su7-page" class="section su7-section" data-theme="night-sky">
+    <p class="section-eyebrow">just one to look at</p>
+    <h2 class="section-title fb-title">A Moment I Keep Coming Back To <span>❤️</span></h2>
+    <div class="fb-photo-wrap reveal tap-reveal" id="fb-photo-wrap" tabindex="0" role="button" aria-label="Tap to reveal photo">
+      <div class="fb-photo-glow"></div>
+      <span class="pic-zoom" style="--zoom-dur:17s; --zoom-delay:-4s;">
+        <img src="assets/pic11.jpg" alt="A favorite moment with Suu" id="fb-image" class="fb-image"
+          onerror="this.closest('.fb-photo-wrap').classList.add('fb-missing'); this.remove();">
+      </span>
+      <div class="tap-reveal-veil"><span class="tap-reveal-label">Tap to reveal ❤️</span></div>
+    </div>
+    <p class="fb-quote reveal">This one says everything I can't. ❤️</p>
+  </section>
+
+  <!-- ===== The Question ===== -->
+  <section id="proposal" class="section proposal-section" data-theme="luxury">
+    <canvas id="proposal-canvas"></canvas>
+    <div class="ring-wrap">
+      <div class="ring-glow"></div>
+      <svg viewBox="0 0 120 140" class="ring-svg">
+        <circle cx="60" cy="90" r="42" fill="none" stroke="url(#ringGrad)" stroke-width="8"/>
+        <defs>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#dff2ff"/>
+            <stop offset="50%" stop-color="#7ad0ff"/>
+            <stop offset="100%" stop-color="#3a8bff"/>
+          </linearGradient>
+        </defs>
+        <polygon points="60,10 72,34 48,34" fill="#eaf6ff" stroke="#cdeeff" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <p class="proposal-text">
+      You are one of the best chapters of my life, Suu.<br>
+      Every bit of chaos with you makes my world brighter.<br>
+      Every memory with you is precious.
+    </p>
+    <h2 class="proposal-question">Will You Be Mine, Forever? ❤️</h2>
+    <div class="proposal-buttons">
+      <div class="yes-btn-wrap">
+        <span class="yes-sparkle s1"></span><span class="yes-sparkle s2"></span><span class="yes-sparkle s3"></span>
+        <button id="yes-btn" class="yes-btn">YES 💖</button>
+      </div>
+      <button id="no-btn" class="no-btn">no</button>
+    </div>
+    <p id="no-btn-msg" class="no-btn-msg" aria-live="polite"></p>
+    <div id="celebration" class="celebration" hidden>
+      <div class="fin-bg-wrap" id="fin-bg-wrap">
+        <img src="assets/su.8.webp" alt="" id="fin-bg-image" class="fin-bg-image"
+          onerror="this.closest('.fin-bg-wrap').classList.add('fin-bg-missing'); this.remove();">
+        <div class="fin-bg-fallback"></div>
+        <div class="fin-overlay"></div>
+        <div class="fin-particles" id="fin-particles" aria-hidden="true"></div>
+      </div>
+      <canvas id="celebration-canvas"></canvas>
+      <div class="celebration-content fin-content">
+        <p class="fin-eyebrow reveal">the last chapter</p>
+        <h2 class="fin-title reveal">FOREVER BEGINS <span>❤️</span></h2>
+        <p class="fin-subtitle reveal">Some stories don't end. They become memories we carry forward.</p>
+        <p class="fin-message reveal" id="fin-message"></p>
+        <button class="fin-secret" type="button" id="fin-secret" aria-label="Reveal a hidden message"></button>
+        <p class="fin-secret-text" id="fin-secret-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ending ===== -->
+  <section id="ending" class="section ending-section" data-theme="night-sky">
+    <div class="moon-scene">
+      <div class="ending-aurora"></div>
+      <div class="moon"></div>
+      <div class="ending-stars"></div>
+      <div class="ending-fireflies">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="ending-clouds"><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-cloud"/></svg></span></div>
+      <div class="ending-butterflies"><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-butterfly"/></svg></span></div>
+      <div class="ending-petals">
+        <span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span><span><svg class="icon" viewBox="0 0 100 100"><use href="#i-petal"/></svg></span>
+      </div>
+      <div class="ending-couple"><svg class="icon" viewBox="0 0 100 100"><use href="#i-couple"/></svg></div>
+      <canvas id="ending-star-canvas"></canvas>
+    </div>
+
+    <div class="ending-message" id="ending-message">
+      <h2 class="ending-text">Suu <span>❤️</span></h2>
+      <p class="ending-body">
+        Thank you for taking this journey with me.<br>
+        Every click brought you closer to my heart.<br>
+        I hope this is just the beginning of many more birthdays together.
+      </p>
+      <p class="ending-signature" id="ending-signature" data-line1="Forever Yours ❤️" data-line2="From Shivu"></p>
+    </div>
+
+    <button class="ending-heart-btn" id="ending-heart-btn" aria-label="Celebrate forever">
+      <svg viewBox="0 0 100 90" width="64" height="58">
+        <defs>
+          <radialGradient id="endHeartGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#fff3d6"/><stop offset="45%" stop-color="#ffb3c6"/><stop offset="100%" stop-color="#d94f78"/>
+          </radialGradient>
+        </defs>
+        <path d="M50 85 C10 55 -5 25 20 10 C35 1 48 8 50 22 C52 8 65 1 80 10 C105 25 90 55 50 85 Z" fill="url(#endHeartGrad)"/>
+      </svg>
+    </button>
+
+    <canvas id="ending-finale-canvas"></canvas>
+    <div class="ending-finale-overlay" id="ending-finale-overlay">
+      <p class="ending-finale-line1">THE END...</p>
+      <h2 class="ending-finale-line2">OUR FOREVER BEGINS <span>❤️</span></h2>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <p>Made With Infinite Love ❤️</p>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="scene-engine.js"></script>
+<script src="particle-image.js"></script>
+<script src="heart-particle-3d.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
