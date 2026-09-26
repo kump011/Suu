@@ -1524,7 +1524,7 @@ function initSurpriseMoments() {
    gate will not accept any answer until you fill these in.
    ========================================================= */
 const WEBSITE_NAME = "Suu";
-const WEBSITE_PASSWORD = "Suu@29042007";
+const WEBSITE_PASSWORD = "Suu@11#55&99";
 
 (function initLoginGate() {
   const gate = document.getElementById('login-gate');
